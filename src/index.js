@@ -1,9 +1,6 @@
 require("dotenv").config();
-import express, { Router } from "express";
-import serverless from "serverless-http";
 const app = express();
 const router = Router();
-const path = require("path");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -195,6 +192,6 @@ router.delete("/currencies/:currency", verifyToken, async (req, res) => {
 });
 
 //
-app.use(`/.netlify/functions/api`, router);
-module.exports = app;
-module.exports.handler = serverless(app);
+app.listen(3000, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
