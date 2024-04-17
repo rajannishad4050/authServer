@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your frontend's origin
+  origin: "https://forex-trading-simulator.netlify.app/", // Replace with your frontend's origin
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,
