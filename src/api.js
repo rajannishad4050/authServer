@@ -194,6 +194,7 @@ router.delete("/currencies/:currency", verifyToken, async (req, res) => {
   }
 });
 
-//            //
-api.use("/api/", router);
-export const handler = serverless(api);
+//
+app.use(`/.netlify/functions/api`, router);
+module.exports = app;
+module.exports.handler = serverless(app);
