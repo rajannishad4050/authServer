@@ -1,11 +1,10 @@
 require("dotenv").config();
-const express = require("express");
+import express, { Router } from "express";
+import serverless from "serverless-http";
 const app = express();
+const router = Router();
 const path = require("path");
 const cors = require("cors");
-const serverless = require("serverless-http");
-const port = 4000; // Set the port number you want to use
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
@@ -195,10 +194,6 @@ router.delete("/currencies/:currency", verifyToken, async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
-app.use("/.netlify/functions/api", router);
-module.exports.handler = serverless(app);
+//            //
+api.use("/api/", router);
+export const handler = serverless(api);
