@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // Enable CORS for all routes
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // Define a route that responds with "Hello"
